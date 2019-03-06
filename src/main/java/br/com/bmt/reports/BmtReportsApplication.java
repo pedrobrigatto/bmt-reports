@@ -30,8 +30,8 @@ public class BmtReportsApplication {
                     "PR-4703.34-6512-911-BBQ-001", "Substituição de Trechos do Oleoduto OPASA 16''");
 			contract.generateId();
 			
-			OperationDbDTO operation = OperationDbDTO.of(
-					"REVESTIMENTO", "KM-02 / KM-245", "KM-05", "Paulínia");
+			OperationDbDTO operation = 
+					OperationDbDTO.of("REVESTIMENTO", "KM-02 / KM-245", "KM-05", "Paulínia");
 			operation.generateId();
 			
 			Set<OperationDbDTO> operations = new HashSet<>();
