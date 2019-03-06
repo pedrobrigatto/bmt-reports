@@ -73,6 +73,4 @@ public class DtoConverterFactory {
 		scanner.addIncludeFilter(new AnnotationTypeFilter(annotationClass));
 		return scanner;
 	}
-	
-	
 }
