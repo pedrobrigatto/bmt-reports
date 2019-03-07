@@ -21,7 +21,7 @@ public class DtoConverterFactory {
 	private static final int DB_SUFFIX_LENGTH = 5;
 	private static final int REST_SUFFIX_LENGTH = 7;
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "rawtypes" })
 	public static <T extends BaseDbDTO> Optional<DbDtoConverter> createDbDtoConverter(Class<T> dtoType) {
 		ClassPathScanningCandidateComponentProvider scanner = prepareScanner(DbConverter.class);
 		
@@ -34,7 +34,7 @@ public class DtoConverterFactory {
 				
 				if (annotation.dto().toLowerCase().contentEquals((dtoNameWithoutSuffix.toLowerCase()))) {
 					return (Optional<DbDtoConverter>) 
-							Optional.of(Class.forName(beanDef.getBeanClassName()).newInstance());
+							Optional.of((DbDtoConverter) Class.forName(beanDef.getBeanClassName()).newInstance());
 				}
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				LOGGER.error("Problemas ao criar o conversor. Mensagem = {}", e.getMessage());
@@ -43,7 +43,7 @@ public class DtoConverterFactory {
 		return Optional.empty();
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "rawtypes" })
 	public static <T extends BaseRestDTO> Optional<RestDtoConverter> createRestDtoConverter(Class<T> dtoType) {
 		
 		ClassPathScanningCandidateComponentProvider scanner = prepareScanner(RestConverter.class);
@@ -57,7 +57,7 @@ public class DtoConverterFactory {
 				
 				if (annotation.dto().toLowerCase().contentEquals((dtoNameWithoutSuffix.toLowerCase()))) {
 					return (Optional<RestDtoConverter>) 
-							Optional.of(Class.forName(beanDef.getBeanClassName()).newInstance());
+							Optional.of((RestDtoConverter)Class.forName(beanDef.getBeanClassName()).newInstance());
 				}
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				LOGGER.error("Problemas ao criar o conversor. Mensagem = {}", e.getMessage());

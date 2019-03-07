@@ -41,5 +41,4 @@ public class BmtReportsApplication {
 			contractRepository.save(contract);
 		};
 	}
-
 }
