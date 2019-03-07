@@ -28,7 +28,7 @@ public class ContractController {
 	ContractRepository contractRepository;
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@PostMapping (path = "/path/contracts/")
+	@PostMapping (path = "/api/contracts/")
 	public ResponseEntity<ContractRestDTO> createContract(
 			@RequestBody ContractRestDTO contract, BindingResult result) {
 		if (contract.getId().isPresent()) {

@@ -14,6 +14,7 @@ public class ContractRestConverter implements RestDtoConverter <ContractRestDTO,
 	public ContractRestDTO toRest(ContractDbDTO dbDTO) {
 		ContractRestDTO dto = new ContractRestDTO(dbDTO.getNumber(), 
 				dbDTO.getProvider(), dbDTO.getDocument(), dbDTO.getObject());
+		dto.setId(dbDTO.getId());
 		for (OperationDbDTO operation : dbDTO.getOperations()) {
 			OperationRestDTO operationDTO = OperationRestDTO.of(operation.getPhase(), 
 					operation.getStretch(), operation.getBand(), operation.getCity());
