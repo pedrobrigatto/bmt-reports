@@ -15,6 +15,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 	
+	private static final String SERVICE_TITLE = "Building Management Tool";
+	private static final String SERVICE_DESCRIPTION = "Ferramenta para gerenciamento de obras";
+	private static final String SERVICE_VERSION = "1.0";
 	private static final String CONTROLLERS_PACKAGE = "br.com.bmt.reports.controllers";
 	
 	@Bean
@@ -25,7 +28,7 @@ public class SwaggerConfig {
 	}
 	
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Build Management Tool").
-				description("Ferramenta para gerenciamento de obras").version("1.0").build();
+		return new ApiInfoBuilder().title(SERVICE_TITLE).
+				description(SERVICE_DESCRIPTION).version(SERVICE_VERSION).build();
 	}
 }
